@@ -1,12 +1,12 @@
 ---
 name: paginadevendas-guiinfo
-description: Cria páginas de vendas HTML premium para cursos e produtos digitais do Gui — design system Gênios da IA (fundo #08080a, Clash Display, roxo/azul). USE quando o Gui pedir uma página nova de curso, produto digital ou paginadevendas-guiinfo. Pergunta sobre módulos/aulas, hero video (start+end frame), depoimentos, preço e urgência. Orquestra geração de imagens no Higgsfield (pede aprovação por imagem), entrega HTML completo com carrossel de módulos, depoimentos 3D perspective wall, bloco de preço com "O que está incluído" e todos os efeitos premium (hero gradient, 3D tilt, magnetic buttons). Sempre entrega prompt Seedance após end frame aprovado.
+description: Cria páginas de vendas HTML premium para infoprodutos e produtos digitais — cursos, mentorias, comunidades, ferramentas digitais, qualquer produto que se venda online. USE sempre que pedirem uma página de vendas de infoproduto, curso, mentoria ou produto digital, independente da marca ou nicho. Pergunta sobre paleta/estilo, módulos/aulas, hero video (start+end frame), depoimentos, preço e urgência. Orquestra geração de imagens no Higgsfield (pede aprovação por imagem), entrega HTML completo com carrossel de módulos, depoimentos 3D perspective wall, bloco de preço com "O que está incluído" e todos os efeitos premium (hero gradient, 3D tilt, magnetic buttons). Sempre entrega prompt Seedance após end frame aprovado.
 ---
 
-# Página de Vendas — Gênios da IA (Gui Info)
+# Página de Vendas — Infoprodutos
 
-Skill para criar landing pages de alta conversão para cursos e produtos digitais do Gui.
-Segue o design system Gênios da IA. Orquestra conteúdo → imagens → HTML final.
+Skill para criar landing pages de alta conversão para cursos, mentorias e produtos digitais.
+Orquestra conteúdo → visual → imagens → HTML final. Adapta paleta e tipografia a cada produto.
 
 ---
 
@@ -21,6 +21,10 @@ Faça estas perguntas **uma por vez**, espere a resposta antes de avançar:
 - Promessa principal (resultado em 1 frase)
 - Público-alvo
 - Preço (à vista e parcelado)
+
+**0. Visual (perguntar antes de tudo)**
+"Qual o estilo visual que você quer? Tem uma cor de marca? (ex: roxo, dourado, verde, azul) — ou quer sugestão baseada no nicho do produto?"
+Com base na resposta, defina `--accent` e adapte o design system. Padrão sugerido se não houver preferência: roxo `#7C3AED` + azul `#3B82F6` (tech/IA) ou dourado `#c9a84c` (luxo/premium) ou verde `#10b981` (saúde/negócios).
 
 **2. Prova social numérica**
 "Quais são os números reais que você tem? Ex: faturamento, alunos, contratos fechados, resultado gerado pros clientes."
@@ -100,6 +104,10 @@ Link para shared: `../shared/styles.css` e `../shared/scripts.js`
 ## Design System
 
 ### Tokens CSS
+
+O fundo é sempre escuro (`#08080a`). O que muda é `--accent` e `--accent-2` conforme a cor definida na Fase 0.
+Adapte também `--accent-light`, `--accent-dark`, `--accent-glow` proporcionalmente.
+
 ```css
 :root {
   --bg:           #08080a;
@@ -110,11 +118,11 @@ Link para shared: `../shared/styles.css` e `../shared/scripts.js`
   --text:         #f5f5f7;
   --text-muted:   #a1a1aa;
   --text-subtle:  #52525b;
-  --accent:       #7C3AED;
-  --accent-2:     #3B82F6;
-  --accent-light: #A78BFA;
-  --accent-dark:  #5B21B6;
-  --accent-glow:  rgba(124,58,237,0.4);
+  --accent:       [cor definida na Fase 0];   /* ex: #7C3AED roxo, #c9a84c ouro, #10b981 verde */
+  --accent-2:     [cor complementar];
+  --accent-light: [versão clara do accent];
+  --accent-dark:  [versão escura do accent];
+  --accent-glow:  rgba([R,G,B do accent], 0.4);
   --radius:       12px;
   --radius-lg:    20px;
 }
